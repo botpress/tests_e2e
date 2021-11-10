@@ -1,6 +1,6 @@
 /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 module.exports = {
-  preset: 'ts-jest',
+  preset: 'jest-puppeteer',
   testEnvironment: 'node',
 
   globals: {
@@ -19,14 +19,12 @@ module.exports = {
     '^.+\\.(ts|tsx|js)$': 'ts-jest'
   },
   testMatch: ['**/tests/**/*.test.(ts|js)'],
-  testPathIgnorePatterns: ['node_modules', 'borrar', 'proves','results','TheyWork'],
+  testPathIgnorePatterns: ['node_modules', 'borrar', 'proves', 'results', 'TheyWork'],
   testEnvironment: '<rootDir>/tests/customEnvironment.js',
   rootDir: '.',
   testResultsProcessor: '<rootDir>/node_modules/jest-html-reporter',
-  testRunner: 'jest-circus/runner',
+  testRunner: 'jest-circus/runner'
 
- //globalSetup: './jest.global-setup.ts', // will be called once before all tests are executed
- // globalTeardown: './jest.global-teardown.ts' // will be called once after all tests are executed
-
-
+  //globalSetup: './jest.global-setup.ts', // will be called once before all tests are executed
+  // globalTeardown: './jest.global-teardown.ts' // will be called once after all tests are executed
 }
