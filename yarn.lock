@@ -877,7 +877,7 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/preset-typescript@^7.8.3":
+"@babel/preset-typescript@^7.16.0", "@babel/preset-typescript@^7.8.3":
   version "7.16.0"
   resolved "https://registry.npmjs.org/@babel/preset-typescript/-/preset-typescript-7.16.0.tgz#b0b4f105b855fb3d631ec036cdc9d1ffd1fa5eac"
   integrity sha512-txegdrZYgO9DlPbv+9QOVpMnKbOtezsLHWsnsRF4AjbSIsVaujrq1qg8HK0mxQpWv0jnejt0yEoW1uWpvbrDTg==
@@ -1441,7 +1441,7 @@
 
 "@types/jest@^27.0.2":
   version "27.0.2"
-  resolved "https://registry.npmjs.org/@types/jest/-/jest-27.0.2.tgz#ac383c4d4aaddd29bbf2b916d8d105c304a5fcd7"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.2.tgz#ac383c4d4aaddd29bbf2b916d8d105c304a5fcd7"
   integrity sha512-4dRxkS/AFX0c5XW6IPMNOydLn2tEhNhJV7DnYK+0bjoJZ+QTmfucBlihX7aoEsh/ocYtkLC73UbnBXBXIxsULA==
   dependencies:
     jest-diff "^27.0.0"
@@ -1825,7 +1825,7 @@ axios@^0.21.1:
 
 babel-jest@^27.3.1:
   version "27.3.1"
-  resolved "https://registry.npmjs.org/babel-jest/-/babel-jest-27.3.1.tgz#0636a3404c68e07001e434ac4956d82da8a80022"
+  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-27.3.1.tgz#0636a3404c68e07001e434ac4956d82da8a80022"
   integrity sha512-SjIF8hh/ir0peae2D6S6ZKRhUy7q/DnpH7k/V6fT4Bgs/LXXUztOpX4G2tCgq8mLo5HA9mN6NmlFMeYtKmIsTQ==
   dependencies:
     "@jest/transform" "^27.3.1"
@@ -4435,7 +4435,7 @@ jest-haste-map@^27.3.1:
 
 jest-html-reporter@^3.4.1:
   version "3.4.1"
-  resolved "https://registry.npmjs.org/jest-html-reporter/-/jest-html-reporter-3.4.1.tgz#4d0981853957ba553c1ef59893a2c15146e61faf"
+  resolved "https://registry.yarnpkg.com/jest-html-reporter/-/jest-html-reporter-3.4.1.tgz#4d0981853957ba553c1ef59893a2c15146e61faf"
   integrity sha512-0y8rXYWqOpd+jiUXJtJOJ9HKcac2Uarqa6oLkWCCR6Ui49XjXC8KibluIFmzpAKhnokRmSLuS/K2PW+DC/C3rw==
   dependencies:
     "@babel/core" "^7.9.0"
@@ -4541,7 +4541,7 @@ jest-pnp-resolver@^1.2.2:
 
 jest-puppeteer@^6.0.0:
   version "6.0.0"
-  resolved "https://registry.npmjs.org/jest-puppeteer/-/jest-puppeteer-6.0.0.tgz#fd27e98c134efc580e5cd7875b02ad29f6f5ae1a"
+  resolved "https://registry.yarnpkg.com/jest-puppeteer/-/jest-puppeteer-6.0.0.tgz#fd27e98c134efc580e5cd7875b02ad29f6f5ae1a"
   integrity sha512-dgZJdBxRafMRqHFRxnsqLDbuJcOcdgaJlg2PLoMxgPy9nQZTrtG9ezwQsRf1poSaLbZGMAL2JVS907MBCYPEJw==
   dependencies:
     expect-puppeteer "^6.0.0"
@@ -4734,7 +4734,7 @@ jest-worker@^27.3.1:
 
 jest@^27.3.1:
   version "27.3.1"
-  resolved "https://registry.npmjs.org/jest/-/jest-27.3.1.tgz#b5bab64e8f56b6f7e275ba1836898b0d9f1e5c8a"
+  resolved "https://registry.yarnpkg.com/jest/-/jest-27.3.1.tgz#b5bab64e8f56b6f7e275ba1836898b0d9f1e5c8a"
   integrity sha512-U2AX0AgQGd5EzMsiZpYt8HyZ+nSVIh5ujQ9CPp9EQZJMjXIiSZpJNweZl0swatKRoqHWgGKM3zaSwm4Zaz87ng==
   dependencies:
     "@jest/core" "^27.3.1"
@@ -6267,7 +6267,7 @@ punycode@2.x.x, punycode@^2.1.0, punycode@^2.1.1:
 
 puppeteer-core@^11.0.0:
   version "11.0.0"
-  resolved "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-11.0.0.tgz#d7aa19634948671fa35d14027fa45be807c340cb"
+  resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-11.0.0.tgz#d7aa19634948671fa35d14027fa45be807c340cb"
   integrity sha512-hfQ39KNP0qKplQ86iaCNXHH9zpWlV01UFdggt2qffgWeCBF9KMavwP/k/iK/JidPPWfOnKZhDLSHZVSUr73DtA==
   dependencies:
     debug "4.3.2"
@@ -6285,7 +6285,7 @@ puppeteer-core@^11.0.0:
 
 puppeteer@^11.0.0:
   version "11.0.0"
-  resolved "https://registry.npmjs.org/puppeteer/-/puppeteer-11.0.0.tgz#0808719c38e15315ecc1b1c28911f1c9054d201f"
+  resolved "https://registry.yarnpkg.com/puppeteer/-/puppeteer-11.0.0.tgz#0808719c38e15315ecc1b1c28911f1c9054d201f"
   integrity sha512-6rPFqN1ABjn4shgOICGDBITTRV09EjXVqhDERBDKwCLz0UyBxeeBH6Ay0vQUJ84VACmlxwzOIzVEJXThcF3aNg==
   dependencies:
     debug "4.3.2"
@@ -7348,7 +7348,7 @@ tree-kill@^1.2.2:
 
 ts-jest@^27.0.7:
   version "27.0.7"
-  resolved "https://registry.npmjs.org/ts-jest/-/ts-jest-27.0.7.tgz#fb7c8c8cb5526ab371bc1b23d06e745652cca2d0"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.0.7.tgz#fb7c8c8cb5526ab371bc1b23d06e745652cca2d0"
   integrity sha512-O41shibMqzdafpuP+CkrOL7ykbmLh+FqQrXEmV9CydQ5JBk0Sj0uAEF5TNNe94fZWKm3yYvWa/IbyV4Yg1zK2Q==
   dependencies:
     bs-logger "0.x"
@@ -7436,7 +7436,7 @@ typescript@^2.5.0:
 
 typescript@^4.4.4:
   version "4.4.4"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
   integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
 
 uid2@0.0.3:
