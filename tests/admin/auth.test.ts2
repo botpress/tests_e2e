@@ -4,6 +4,8 @@ import { bpConfig } from '../../jest-puppeteer.config'
 import { clickOn, fillField } from '../expectPuppeteer'
 import { getResponse, doesElementExist } from '../utils'
 
+
+
 describe('Auth UI', () => {
   let jwt: string;
   let default_content: string;
@@ -44,6 +46,9 @@ describe('Auth UI', () => {
       await clickOn('#btn-signin')
       const response = await getResponse(`${bpConfig.apiHost}/api/v2/admin/auth/login/basic/default`, 'POST')
       jwt = (await response.json()).payload.jwt
+
+console.log('>>>>>>>>>' + jwt  )
+
     }
   })
 

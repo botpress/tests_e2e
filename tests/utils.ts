@@ -1,3 +1,4 @@
+import { Console } from 'console'
 import moment = require('moment')
 import { Dialog, ElementHandle, HttpMethod, MouseButton, Page } from 'puppeteer'
 
@@ -23,7 +24,8 @@ export const loginIfNeeded = async () => {
     await fillField('#email', bpConfig.email)
     await fillField('#password', bpConfig.password)
     await clickOn('#btn-signin')
-    return page.waitForNavigation()
+    await page.waitForNavigation()
+    return 
   }
 }
 
@@ -35,14 +37,22 @@ export const gotoStudio = async (section?: string) => {
 
 /** Opens a new URL and makes sure the resulting url matches */
 export const gotoAndExpect = async (url: string, matchUrl?: string) => {
+  console.log('1url....'+url)
+  console.log('1matchUrl....'+matchUrl)
   await page.goto(url)
+  await page.waitForNavigation()
   await expect(page.url()).toMatch(matchUrl || url)
+
 }
 
-export const getResponse = async (url: string, method?: HttpMethod) => {
+export const getResponse = async (url: string, method?: string) => {
   return page.waitForResponse(res => {
-    const resUrl = res.url()
-    console.info(`url: ${url}, resUrl: ${resUrl}`)
+    const resUrl = res.url();
+    console.info(`url: ${url}, resUrl: ${resUrl}`);
+    console.log(`url: ${url}, resUrl: ${resUrl}`);
+    console.log('-----------')
+    console.log(resUrl.includes(url) && (method ? res.request().method() === method : true))
+    console.log('-----------')
     return resUrl.includes(url) && (method ? res.request().method() === method : true)
   })
 }
@@ -53,10 +63,17 @@ export const expectCallSuccess = async (url: string, method?: string): Promise<a
   return response.json()
 }
 
-export const expectAdminApiCallSuccess = async (endOfUrl: string, method?: HttpMethod): Promise<void> => {
+export const expectAdminApiCallSuccess = async (endOfUrl: string, method?: string): Promise<void> => {
   const response = await getResponse(`${bpConfig.apiHost}/api/v2/admin/${endOfUrl}`, method)
+
+  console.log(`>>>>>>>>>>${bpConfig.apiHost}/api/v2/admin/${endOfUrl}`)
+  console.log('2>>>>>>>>>' + response.status())
+  
+
   expect(response.status()).toBe(200)
 }
+
+
 
 export const expectModuleApiCallSuccess = async (
   module: string,
@@ -68,7 +85,7 @@ export const expectModuleApiCallSuccess = async (
   expect(response.status()).toBe(200)
 }
 
-export const expectBotApiCallSuccess = async (endOfUrl: string, method?: HttpMethod): Promise<void> => {
+export const expectBotApiCallSuccess = async (endOfUrl: string, method?: string): Promise<void> => {
   const response = await getResponse(`${bpConfig.apiHost}/api/v1/bots/${bpConfig.botId}/${endOfUrl}`, method)
   expect(response.status()).toBe(200)
 }

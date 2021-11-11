@@ -1,0 +1,28 @@
+To run this suite of tests you need to have the following components (it is assumed 
+you have node and yarn already installed)
+
+    yarn add --dev jest-puppeteer
+    yarn add --dev babel-jest @babel/core @babel/preset-env
+    yarn add --dev @babel/preset-typescript 
+    yarn add --dev @types/jest
+    yarn add --dev jest typescript
+    yarn add --dev ts-jest @types/jest
+    yarn add puppeteer-core
+    yarn add puppeteer
+
+If jest.config.js does not exist you can use this command
+    yarn ts-jest config:init
+
+If you want to report the test results
+    yarn add jest-html-reporter
+
+To run the test
+    yarn test
+
+The above command is defined in the script section of package.json and will run all js scripts 
+in the project filtered by 
+    testMatch: ['**/tests/**/*.test.(ts|js)'],
+as appears in jest.config.js
+
+To run a single test (login.test.js in this case)
+    yarn test login

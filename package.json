@@ -17,7 +17,7 @@
     "build": "yarn cmd build:core",
     "watch": "yarn cmd watch",
     "package": "yarn cmd package",
-    "test": "jest -i --detectOpenHandles -c jest.config.js login",
+    "test": "jest -i --detectOpenHandles -c jest.config.js ",
     "itest": "cross-env NATIVE_EXTENSIONS_DIR=../../build/native-extensions cross-env jest -i --detectOpenHandles -c jest.e2e.config.js all",
     "itest2": "cross-env NATIVE_EXTENSIONS_DIR=../../build/native-extensions cross-env jest -i --detectOpenHandles -c jest.e2e.config.js ",
     "commitmsg": "commitlint -e $GIT_PARAMS",
