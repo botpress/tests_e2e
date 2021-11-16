@@ -1,12 +1,17 @@
 /**
- login.test.ts
+ bots.test.ts
 
- The purpose of this test is to verify that an existing user 
- - can log into Studio, 
- - can create a new bot
- - can delete the newly created bot
-  
- It assumes there are not no other bots and the user has the appropriate rights 
+ This test validate several functionas that can be accessed through the hamburger
+  - Imports an existing bot (stored in assets folder)
+  - Checks the bot has a warning icon indicating the imported bot needs to be trained
+  - Deletes the imported bot
+  - Create a brand new  bot
+  - Checks the new bot has a warning icon indicating the bot needs to be trained
+  - Checks the new bot has been successfully exported
+  - Create revision, then roll it back and then confirms in the logs the roll back
+  - Deletes the bot
+
+It assumes there are  no existing revisions for the new botß  
  
  [smoke][full regression]
  
