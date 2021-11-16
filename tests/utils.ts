@@ -1,6 +1,6 @@
 import { Console } from 'console'
 import moment = require('moment')
-import { Dialog, ElementHandle, HttpMethod, MouseButton, Page } from 'puppeteer'
+import { Dialog, ElementHandle, MouseButton, Page } from 'puppeteer'
 
 import { bpConfig } from '../jest-puppeteer.config'
 
@@ -79,7 +79,7 @@ export const expectModuleApiCallSuccess = async (
   module: string,
   bot: string,
   resource: string,
-  method?: HttpMethod
+  method?: string
 ): Promise<void> => {
   const response = await getResponse(`${bpConfig.apiHost}/api/v1/bots/${bot}/mod/${module}/${resource}`, method)
   expect(response.status()).toBe(200)
@@ -90,7 +90,7 @@ export const expectBotApiCallSuccess = async (endOfUrl: string, method?: string)
   expect(response.status()).toBe(200)
 }
 
-export const expectStudioApiCallSuccess = async (endOfUrl: string, method?: HttpMethod): Promise<void> => {
+export const expectStudioApiCallSuccess = async (endOfUrl: string, method?: string): Promise<void> => {
   const response = await getResponse(`${bpConfig.apiHost}/api/v1/studio/${bpConfig.botId}/${endOfUrl}`, method)
   expect(response.status()).toBe(200)
 }
@@ -104,7 +104,7 @@ export const doesElementExist = async (selector: string): Promise<boolean> => {
   }
 }
 
-export const waitForBotApiResponse = async (endOfUrl: string, method?: HttpMethod): Promise<any> => {
+export const waitForBotApiResponse = async (endOfUrl: string, method?: string): Promise<any> => {
   const response = await getResponse(`${bpConfig.apiHost}/api/v1/bots/${bpConfig.botId}/${endOfUrl}`, method)
   return response.json()
 }
