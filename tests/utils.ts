@@ -1,3 +1,29 @@
+/**
+Collection of utilities and functions used by the test scripts
+ 
+ 
+ 
+doesElementExist (selector: string, time_ms: number)
+  //Given a selector, returns true if found on page.
+ 
+
+
+fileExist(path,filename) 
+  Checks if there is a file in the the path that contains filename, returns boolean 
+
+
+getDateTime()
+ This functions return an array (of strings) [date,month,year,hours,minutes,seconds], all two digits other 
+ than year that are 4 digits
+
+
+isElementVisible(selector)
+  Checks if an element is visible in the screen. Returning false does not mean it doesn't exist!
+
+
+ 
+*/
+
 import { Console } from 'console'
 import moment = require('moment')
 import { Dialog, ElementHandle, MouseButton, Page } from 'puppeteer'
@@ -5,6 +31,8 @@ import { Dialog, ElementHandle, MouseButton, Page } from 'puppeteer'
 import { bpConfig } from '../jest-puppeteer.config'
 
 import { clickOn, expectMatchElement, fillField } from './expectPuppeteer'
+import fse from 'fs-extra'
+
 
 export const getPage = async (): Promise<Page> => {
   await page.setViewport(bpConfig.windowSize)
@@ -65,11 +93,6 @@ export const expectCallSuccess = async (url: string, method?: string): Promise<a
 
 export const expectAdminApiCallSuccess = async (endOfUrl: string, method?: string): Promise<void> => {
   const response = await getResponse(`${bpConfig.apiHost}/api/v2/admin/${endOfUrl}`, method)
-
-  console.log(`>>>>>>>>>>${bpConfig.apiHost}/api/v2/admin/${endOfUrl}`)
-  console.log('2>>>>>>>>>' + response.status())
-  
-
   expect(response.status()).toBe(200)
 }
 
@@ -95,9 +118,10 @@ export const expectStudioApiCallSuccess = async (endOfUrl: string, method?: stri
   expect(response.status()).toBe(200)
 }
 
-export const doesElementExist = async (selector: string): Promise<boolean> => {
+//Given a selector, returns true if found on page.
+export const doesElementExist = async (selector: string, time_ms: number) => {
   try {
-    await page.waitForSelector(selector, { timeout: 5000 })
+    await page.waitForSelector(selector, { timeout: time_ms })
     return true
   } catch (error) {
     return false
@@ -185,4 +209,54 @@ export const getTime = () => {
   const timeFormat = 'HH:mm:ss.SSS'
   const time = moment().format(timeFormat)
   return time
+}
+
+//This functions return an array (of strings) [date,month,year,hours,minutes,seconds], all two digits other than year that are 4 
+export const getDateTime  = () =>{
+  let date_ob = new Date();
+
+  let date = date_ob.getDate().toString();
+  if (parseInt(date) <10) { date ='0' + date} // Ensures the day returns two digits
+
+  let month = (date_ob.getMonth()+1).toString() ;//Returns two digits. Add 1 because the month count starts at 0
+  if (parseInt(month) <10) { month ='0' + month} // Ensures the day returns two digits
+
+  let year = date_ob.getFullYear().toString();// current year returns 4 digits
+  let hours = date_ob.getHours().toString();// current hours
+  if (parseInt(hours) <10) { hours ='0' + hours} // Ensures the hours returns two digits
+
+  let minutes = date_ob.getMinutes().toString();// current minutes
+  if (parseInt(minutes) <10) { minutes ='0' + minutes} // Ensures the minutesreturns two digits
+
+  let seconds = date_ob.getSeconds().toString();// current seconds
+  if (parseInt(seconds) <10) { seconds='0' + seconds}// Ensures the secondsreturns two digits
+
+  return[date,month,year,hours,minutes,seconds]  
+}
+
+//Checks if there is a file in the the path that contains filename, returns boolean 
+export const fileExist =async (path: string, filename: string)=>{
+  var flag=false
+  const files = await fse.readdir(path)
+  try {  
+    files.forEach(file => {
+      if (file.includes(filename) && !flag){
+          flag=true; 
+          }
+      })
+  }
+  catch (err){}
+  return flag
+}
+
+//Check if an element is visible in the screen. Returning false does not mean it doesn't exist!
+export const isElementVisible = async (selector: string) => {
+  try {
+    await page.$eval(selector, (elem) => {
+      return window.getComputedStyle(elem).getPropertyValue('visibility') 
+      });
+    return true
+  } catch (error) {
+    return false
+  }
 }
