@@ -27,18 +27,9 @@ It assumes there are  no existing revisions for the new bot
  import fse from 'fs-extra'
  import { bpConfig } from '../../jest-puppeteer.config'
  import { clickOn, expectMatchElement, fillField, uploadFile } from '../expectPuppeteer'
- import {
-   closeToaster,
-   CONFIRM_DIALOG,
-   expectAdminApiCallSuccess,
-   expectModuleApiCallSuccess,
-   getPage,
-   gotoAndExpect,
-   loginIfNeeded,
-   triggerKeyboardShortcut
- } from '../utils'
- import { Page } from 'puppeteer'
- 
+
+ var utils = require('../utils');
+   
  
  describe('Admin - Bot Management Tests', () => {
    const tempBotId = 'lol-bot'
@@ -52,11 +43,11 @@ It assumes there are  no existing revisions for the new bot
    }
   
    beforeAll(async () => {
-     const page = await getPage()
+     const page = await utils.getPage()
      await page.goto(bpConfig.host)
      await page.setDefaultNavigationTimeout(10000)
  
-     await loginIfNeeded()
+     await utils.loginIfNeeded()
      await page.goto(`${bpConfig.host}/admin/workspace/${workspaceId}/bots`)
      if (page.url()!==`${bpConfig.host}/admin/workspace/${workspaceId}/bots`){
        await page.waitForNavigation()
